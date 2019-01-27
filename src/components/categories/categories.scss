@@ -1,6 +1,11 @@
 .categories {
+    margin: auto;
+    padding: 0 16px;
+    max-width: 1024px;
+
     &__header {
         font-weight: normal;
+        margin-bottom: 0;
     }
 
     &__list {
@@ -9,6 +14,19 @@
     }
 
     .category-item {
+        max-width: 248px;
         display: flex;
+        // align-items: center;
+
+        &__image {
+            // margin-right: 8px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        &__details {
+            padding: 12px;
+        }
     }
 }

@@ -1,4 +1,19 @@
-.carousel__list {
-    display: flex;
-    flex-wrap: wrap;
+.carousel {
+    margin: auto;
+    padding: 0 1rem;
+    max-width: 1024px;
+
+    &__list {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__item {
+        margin: 0 8px;
+    }
+}
+
+.carousel-wrapper {
+    padding: 16px 0;
+    background-color: #dddddd;
 }
