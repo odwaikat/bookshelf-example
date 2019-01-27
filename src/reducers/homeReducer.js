@@ -8,7 +8,7 @@ export default (state = {}, action) => {
         case 'LOAD_CAROUSEL_DATA':
             return {
                 ...state,
-                carousel: action.payload
+                books: action.payload
             }
         default:
             return state

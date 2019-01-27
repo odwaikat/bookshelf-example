@@ -5,7 +5,8 @@ import {
     loadBooksCarouselData
 } from './actions'
 
-// import Categories from 'components/categories/categories'
+import Categories from 'components/categories/container'
+import Carousel from 'components/carousel/container'
 // import Books from 'components/books/books'
 
 class Home extends React.Component {
@@ -17,12 +18,21 @@ class Home extends React.Component {
     //     // }
     // }
     componentDidMount() {
-        this.props.loadCategoriesData()
-        this.props.loadBooksCarouselData()
+        this.props.loadCategoriesData();
+        this.props.loadBooksCarouselData();
     }
     render() {
+        const {home} = this.props;
+        const books = home.books;
+        let categories = home.categories;
+        if (categories) {
+            categories = categories.slice(0, 8);
+        }
         return (
-            <div/>
+            <div>
+                <Categories categoriesData={categories} />
+                <Carousel carouselData={books} />
+            </div>
         );
     }
 }

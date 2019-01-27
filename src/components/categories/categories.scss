@@ -1,0 +1,14 @@
+.categories {
+    &__header {
+        font-weight: normal;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .category-item {
+        display: flex;
+    }
+}
