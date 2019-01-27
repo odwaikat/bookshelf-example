@@ -1,39 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.scss';
-import { simpleAction } from './actions/simpleAction'
+import Home from './containers/home/container'
+import Header from './containers/header/container'
 
 class App extends Component {
-	simpleAction = (event) => {
-		this.props.simpleAction();
-	}
 	render() {
 		return (
 			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Welcome to React</h1>
+				<header>
+					<Header/>
 				</header>
-				<p className="App-intro">
-					To get started, edit <code>src/App.js</code> and save to reload
-				</p>
-				<button onClick={this.simpleAction}>Test redux action</button>
-				<pre>
-					{
-						JSON.stringify(this.props)
-					}
-				</pre>
+				<main className="main-content">
+					<Home/>
+				</main>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-	...state
-})
-const mapDispatchToProps = dispatch => ({
-	simpleAction: () => dispatch(simpleAction())
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
