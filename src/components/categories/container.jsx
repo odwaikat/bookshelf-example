@@ -11,7 +11,7 @@ const Categories = ({categoriesData}) => (
                     {categoriesData && categoriesData.map((category) => (
                         <div className="category-item" key={category.id} >
                             <div className="category-item__image">
-                                <img src={category.image} alt={category.title} width={40} height={40} />
+                                <img src={require(`static/assets${category.image}`)} alt={category.title} width={40} height={40} />
                             </div>
                             <div>
                                 <h3 className="category-item__title">
