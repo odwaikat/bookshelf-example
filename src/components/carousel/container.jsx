@@ -1,5 +1,6 @@
 import React from 'react';
 import Book from 'components/book/container'
+import { scrollTo } from 'utils/utils'
 
 const mobileVisibleItems = 1;
 const tabletVisibleItems = 3;
@@ -34,10 +35,14 @@ class Carousel extends React.Component {
     slideBack() {
         const currentIndex = this.state.currentIndex;
         this.setState({currentIndex: currentIndex - 1})
+        // var el = document.querySelector('.carousel__list');
+        scrollTo(this.carouselList, 196 * (currentIndex - 1), 500);
     }
     slideNext() {
         const currentIndex = this.state.currentIndex;
         this.setState({currentIndex: currentIndex + 1})
+        // var el = document.querySelector('.carousel__list');
+        scrollTo(this.carouselList, 196 * (currentIndex + 1), 500);
     }
 
     render() {
@@ -45,8 +50,14 @@ class Carousel extends React.Component {
         const carouselItemsCount = carouselData && Object.keys(carouselData).length
         const currentIndex = this.state.currentIndex;
         const numberOfVisibleItems = this.state.numberOfVisibleItems;
-        if (carouselData) {
-            carouselData = carouselData.slice(currentIndex, currentIndex + numberOfVisibleItems);
+
+        let carouselListClass = '';
+        if (numberOfVisibleItems === 5) {
+            carouselListClass = 'show-five'
+        } else if (numberOfVisibleItems === 3) {
+            carouselListClass = 'show-three'
+        } else {
+            carouselListClass = 'show-one'
         }
 
         return (
@@ -62,7 +73,7 @@ class Carousel extends React.Component {
                                 onClick={() => this.slideBack()}
                             >
                             </button>
-                            <div className="carousel__list">
+                            <div className={`carousel__list ${carouselListClass}`} ref={(el) => { this.carouselList = el }}>
                                 {carouselData && carouselData.map((el) => (
                                     <div key={el.id} className="carousel__item">
                                         <Book book={el} />

@@ -6,6 +6,18 @@
     &__list {
         display: flex;
         justify-content: space-between;
+        overflow: hidden;
+        margin: auto;
+
+        &.show-five {
+            width: calc(196px*5);
+        }
+        &.show-three {
+            width: calc(196px*3);
+        }
+        &.show-one {
+            width: 196px
+        }
     }
 
     .carousel__back-button,
@@ -58,12 +70,12 @@
 
 }
 
-@media (max-width: 1023px) {
-    .carousel__list {
-        justify-content: center;
-    }
+// @media (max-width: 1023px) {
+//     .carousel__list {
+//         justify-content: center;
+//     }
 
-    .carousel__item {
-        margin: 0 8px;
-    }
+// }
+.carousel__item {
+    margin: 0 16px 0 0;
 }
