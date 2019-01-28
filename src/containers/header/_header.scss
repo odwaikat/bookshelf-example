@@ -7,6 +7,10 @@
     /*brand color*/
     height: $headerHeight;
 
+    &.drawer-open {
+        position: static;
+    }
+
     &__navigation {
         display: flex;
         height: 100%;
@@ -84,6 +88,8 @@
 .main-content {
     margin-top: $headerHeight;
     padding-top: 8px;
+    overflow-x: hidden;
+    margin-bottom: 80px;
 }
 
 @media (max-width: 768px) {

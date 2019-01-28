@@ -8,6 +8,8 @@ class Carousel extends React.Component {
     constructor() {
         super();
         this.resize = this.resize.bind(this);
+        this.slideBack = this.slideBack.bind(this);
+        this.slideNext = this.slideNext.bind(this);
         this.state = {
             numberOfVisibleItems: mobileVisibleItems,
             currentIndex: 0
@@ -29,8 +31,18 @@ class Carousel extends React.Component {
         this.setState({numberOfVisibleItems: numberOfVisibleItems});
     }
 
+    slideBack() {
+        const currentIndex = this.state.currentIndex;
+        this.setState({currentIndex: currentIndex - 1})
+    }
+    slideNext() {
+        const currentIndex = this.state.currentIndex;
+        this.setState({currentIndex: currentIndex + 1})
+    }
+
     render() {
         let carouselData = this.props.carouselData;
+        const carouselItemsCount = carouselData && Object.keys(carouselData).length
         const currentIndex = this.state.currentIndex;
         const numberOfVisibleItems = this.state.numberOfVisibleItems;
         if (carouselData) {
@@ -45,6 +57,11 @@ class Carousel extends React.Component {
                             <h2 className="carousel__header">
                                 <b>Nonfiction</b>
                             </h2>
+                            <button className="carousel__back-button"
+                                disabled={currentIndex === 0}
+                                onClick={() => this.slideBack()}
+                            >
+                            </button>
                             <div className="carousel__list">
                                 {carouselData && carouselData.map((el) => (
                                     <div key={el.id} className="carousel__item">
@@ -52,6 +69,11 @@ class Carousel extends React.Component {
                                     </div>
                                 ))}
                             </div>
+                            <button className="carousel__next-button"
+                                disabled={carouselItemsCount <= currentIndex + numberOfVisibleItems}
+                                onClick={() => this.slideNext()}
+                            >
+                            </button>
                         </div>
                     </div>
                 }

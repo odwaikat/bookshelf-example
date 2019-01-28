@@ -1,4 +1,5 @@
 import React from 'react';
+import { loadLocalImage } from 'utils/utils'
 
 const Categories = ({categoriesData}) => (
     <React.Fragment>
@@ -11,7 +12,7 @@ const Categories = ({categoriesData}) => (
                     {categoriesData && categoriesData.map((category) => (
                         <div className="category-item" key={category.id} >
                             <div className="category-item__image">
-                                <img src={require(`static/assets${category.image}`)} alt={category.title} width={60} />
+                            <img src={loadLocalImage(category.image)} alt={category.title} width={60} />
                             </div>
                             <div  className="category-item__details">
                                 <h3 className="category-item__title">

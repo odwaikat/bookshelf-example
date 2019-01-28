@@ -1,6 +1,6 @@
 .categories {
     margin: auto;
-    padding: 0 16px;
+    padding: 0 16px 56px;
     max-width: 1024px;
 
     &__header {
@@ -11,22 +11,32 @@
     &__list {
         display: flex;
         flex-wrap: wrap;
+        margin-top: 16px;
     }
 
     .category-item {
-        max-width: 248px;
+        max-width: 245px;
         display: flex;
-        // align-items: center;
+        margin-top: 12px;
 
         &__image {
-            // margin-right: 8px;
             height: 100%;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+        }
+
+        &__title {
+            margin: 0;
         }
 
         &__details {
-            padding: 12px;
+            padding: 0 16px 12px 16px;
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .categories__list {
+        justify-content: center;
     }
 }
